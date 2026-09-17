@@ -737,15 +737,17 @@ footer {
         font-size: 36px;
     }
 
-}
+/* =========================
+   CERTIFICATE TEXT COLOR
+========================= */
+
 .certificate-info h2 {
     color: #222222 !important;
     opacity: 1 !important;
-    font-weight: 700;
 }
 
 .certificate-info .date {
-    color: #d4a900 !important;
+    color: #777777 !important;
     opacity: 1 !important;
 }
 
