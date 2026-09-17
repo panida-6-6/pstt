@@ -738,3 +738,18 @@ footer {
     }
 
 }
+.certificate-info h2 {
+    color: #222222 !important;
+    opacity: 1 !important;
+    font-weight: 700;
+}
+
+.certificate-info .date {
+    color: #d4a900 !important;
+    opacity: 1 !important;
+}
+
+.certificate-info p {
+    color: #555555 !important;
+    opacity: 1 !important;
+}
