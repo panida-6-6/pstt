@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="th">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -11,13 +11,354 @@
     <title>My Portfolio | Certificates</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           CERTIFICATES PAGE
+        ========================= */
+
+        .certificates-page {
+            padding: 70px 0 100px;
+        }
+
+        /* หัวข้อ */
+
+        .certificates-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .certificates-header .small-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .certificates-header h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .certificates-header p {
+            max-width: 650px;
+            margin: auto;
+            color: #666;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .certificate-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .certificate-card {
+
+            background: #ffffff;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border: 1px solid #eeeeee;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.06);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .certificate-card:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.10);
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .certificate-image {
+
+            width: 100%;
+
+            height: 250px;
+
+            background: #f7f7f7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            cursor: pointer;
+        }
+
+
+        .certificate-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .certificate-card:hover
+        .certificate-image img {
+
+            transform: scale(1.03);
+        }
+
+
+        /* =========================
+           TEXT
+        ========================= */
+
+        .certificate-info {
+
+            padding: 22px 22px 25px;
+        }
+
+
+        .certificate-info h2 {
+
+            font-size: 19px;
+
+            margin:
+                0 0 10px;
+
+            line-height: 1.5;
+        }
+
+
+        .certificate-info .date {
+
+            font-size: 13px;
+
+            color: #888;
+
+            margin-bottom: 12px;
+        }
+
+
+        .certificate-info p {
+
+            font-size: 14px;
+
+            color: #666;
+
+            line-height: 1.8;
+
+            margin: 0;
+        }
+
+
+        /* =========================
+           IMAGE MODAL
+        ========================= */
+
+        .image-modal {
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 9999;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                rgba(0, 0, 0, 0.88);
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            box-sizing: border-box;
+        }
+
+
+        .image-modal.show {
+
+            display: flex;
+        }
+
+
+        .image-modal img {
+
+            max-width: 90%;
+
+            max-height: 90%;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 10px 40px
+                rgba(0, 0, 0, 0.4);
+        }
+
+
+        .close-modal {
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 30px;
+
+            font-size: 40px;
+
+            color: white;
+
+            cursor: pointer;
+
+            line-height: 1;
+
+            font-weight: 300;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .certificate-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .certificates-page {
+
+                padding:
+                    45px 15px 70px;
+            }
+
+
+            .certificates-header h1 {
+
+                font-size: 32px;
+            }
+
+
+            .certificates-header p {
+
+                font-size: 14px;
+            }
+
+
+            .certificate-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 22px;
+            }
+
+
+            .certificate-image {
+
+                height: 230px;
+            }
+
+
+            .certificate-info {
+
+                padding:
+                    18px 18px 22px;
+            }
+
+
+            .close-modal {
+
+                right: 20px;
+
+                top: 15px;
+
+                font-size: 35px;
+            }
+
+
+            .image-modal {
+
+                padding: 15px;
+            }
+
+
+            .image-modal img {
+
+                max-width: 96%;
+
+                max-height: 85%;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
+<!-- เส้นด้านบน -->
+
 <div class="color-line"></div>
 
-<!-- NAVBAR -->
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav class="navbar">
 
@@ -25,164 +366,413 @@
         MY PORTFOLIO
     </a>
 
+
     <div class="nav-menu">
 
-        <a href="index.html">HOME</a>
+        <a href="index.html">
+            HOME
+        </a>
 
-        <a href="about.html">ABOUT</a>
+        <a href="about.html">
+            ABOUT
+        </a>
 
-        <a href="why.html">WHY JC?</a>
+        <a href="why.html">
+            WHY JC?
+        </a>
 
-        <a href="skills.html">SKILLS</a>
+        <a href="skills.html">
+            SKILLS
+        </a>
 
-        <a href="activities.html">ACTIVITIES</a>
+        <a href="activities.html">
+            ACTIVITIES
+        </a>
 
-        <a href="certificates.html" class="active">
+        <a href="certificates.html"
+           class="active">
             CERTIFICATES
         </a>
 
-        <a href="contact.html">CONTACT</a>
+        <a href="contact.html">
+            CONTACT
+        </a>
 
     </div>
 
 </nav>
 
 
-<!-- CERTIFICATES -->
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <main class="container">
 
-    <section class="certificates-section">
+    <section class="certificates-page">
 
-        <p class="home-small">
-            MY ACHIEVEMENTS
-        </p>
 
-        <h1>เกียรติบัตรและผลงาน</h1>
+        <!-- HEADER -->
 
-        <p class="certificates-description">
-            รวมเกียรติบัตร กิจกรรม และประสบการณ์
-            ที่สะท้อนความสนใจและความตั้งใจในการเรียนรู้
-        </p>
+        <div class="certificates-header">
 
+            <div class="small-title">
+                MY ACHIEVEMENTS
+            </div>
+
+            <h1>
+                เกียรติบัตรและผลงาน
+            </h1>
+
+            <p>
+                รวมเกียรติบัตร กิจกรรม และประสบการณ์
+                ที่ได้เข้าร่วมและสะสมตลอดช่วงการเรียน
+                พร้อมทั้งสิ่งที่ได้รับจากแต่ละกิจกรรม
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             CERTIFICATE GRID
+        ========================= -->
 
         <div class="certificate-grid">
 
-            <!-- รูปที่ 1 -->
+
+            <!-- 1 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_3483.JPG"
-                     alt="ภาพกิจกรรม">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>กิจกรรมที่เข้าร่วม</h3>
+                    <img
+                        src="images/certificates/IMG_3483.jpg"
+                        alt="ผลงานกิจกรรม 1"
+                    >
 
-                <p>ภาพกิจกรรมและประสบการณ์</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อผลงาน / กิจกรรม
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        เข้าร่วมกิจกรรมและมีส่วนร่วมในการทำงาน
+                        ได้ฝึกการทำงานร่วมกับผู้อื่น
+                        รวมถึงเรียนรู้และพัฒนาทักษะจากประสบการณ์จริง
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 2 -->
+
+            <!-- 2 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0586.JPG"
-                     alt="ภาพกิจกรรม">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>กิจกรรมที่เข้าร่วม</h3>
+                    <img
+                        src="images/certificates/IMG_0586.jpg"
+                        alt="ผลงานกิจกรรม 2"
+                    >
 
-                <p>ภาพกิจกรรมและประสบการณ์</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อผลงาน / กิจกรรม
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        เข้าร่วมกิจกรรมที่เกี่ยวข้องกับการเรียนรู้
+                        ได้ฝึกทักษะการสื่อสาร การทำงานเป็นทีม
+                        และการรับผิดชอบหน้าที่ที่ได้รับมอบหมาย
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 3 -->
+
+            <!-- 3 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0583.jpg"
-                     alt="เกียรติบัตร">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>เกียรติบัตร</h3>
+                    <img
+                        src="images/certificates/IMG_0583.jpg"
+                        alt="เกียรติบัตร 1"
+                    >
 
-                <p>ประกาศนียบัตรและผลงาน</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อเกียรติบัตร
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
+                        แสดงถึงความตั้งใจในการเรียนรู้
+                        และการพัฒนาทักษะของตนเอง
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 4 -->
+
+            <!-- 4 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0580.jpg"
-                     alt="เกียรติบัตร">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>เกียรติบัตร</h3>
+                    <img
+                        src="images/certificates/IMG_0580.jpg"
+                        alt="เกียรติบัตร 2"
+                    >
 
-                <p>ประกาศนียบัตรและผลงาน</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อเกียรติบัตร
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        เข้าร่วมกิจกรรมและผ่านการอบรม
+                        ได้รับความรู้และประสบการณ์
+                        เพื่อนำไปต่อยอดในการเรียนและการทำงาน
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 5 -->
+
+            <!-- 5 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0581.jpg"
-                     alt="เกียรติบัตร">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>เกียรติบัตร</h3>
+                    <img
+                        src="images/certificates/IMG_0581.jpg"
+                        alt="เกียรติบัตร 3"
+                    >
 
-                <p>ประกาศนียบัตรและผลงาน</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อเกียรติบัตร
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        เข้าร่วมกิจกรรมที่ช่วยเสริมสร้าง
+                        ความรู้และประสบการณ์นอกห้องเรียน
+                        พร้อมพัฒนาทักษะที่สามารถนำไปใช้ได้จริง
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 6 -->
+
+            <!-- 6 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0582.jpg"
-                     alt="เกียรติบัตร">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>เกียรติบัตร</h3>
+                    <img
+                        src="images/certificates/IMG_0582.jpg"
+                        alt="เกียรติบัตร 4"
+                    >
 
-                <p>ประกาศนียบัตรและผลงาน</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อเกียรติบัตร
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        ได้เข้าร่วมกิจกรรมและเรียนรู้จากประสบการณ์
+                        ฝึกความรับผิดชอบ การสื่อสาร
+                        และการทำงานร่วมกับผู้อื่น
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 7 -->
+
+            <!-- 7 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0584.jpg"
-                     alt="เกียรติบัตร">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>เกียรติบัตร</h3>
+                    <img
+                        src="images/certificates/IMG_0584.jpg"
+                        alt="เกียรติบัตร 5"
+                    >
 
-                <p>ประกาศนียบัตรและผลงาน</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อเกียรติบัตร
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        เข้าร่วมกิจกรรมเพื่อพัฒนาความรู้
+                        และเปิดโอกาสให้ได้เรียนรู้สิ่งใหม่ ๆ
+                        จากการลงมือปฏิบัติจริง
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 8 -->
+
+            <!-- 8 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_0585.jpg"
-                     alt="เกียรติบัตร">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>เกียรติบัตร</h3>
+                    <img
+                        src="images/certificates/IMG_0585.jpg"
+                        alt="เกียรติบัตร 6"
+                    >
 
-                <p>ประกาศนียบัตรและผลงาน</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อเกียรติบัตร
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        ได้รับประสบการณ์จากการเข้าร่วมกิจกรรม
+                        และนำความรู้ที่ได้รับมาพัฒนาตนเอง
+                        ทั้งด้านการเรียนและทักษะการทำงาน
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- รูปที่ 9 -->
+
+            <!-- 9 -->
+
             <div class="certificate-card">
 
-                <img src="images/certificates/IMG_9585.jpg"
-                     alt="ภาพกิจกรรม">
+                <div class="certificate-image"
+                     onclick="openImage(this)">
 
-                <h3>กิจกรรมที่เข้าร่วม</h3>
+                    <img
+                        src="images/certificates/IMG_9585.jpg"
+                        alt="ผลงานกิจกรรม 3"
+                    >
 
-                <p>ภาพกิจกรรมและประสบการณ์</p>
+                </div>
+
+
+                <div class="certificate-info">
+
+                    <h2>
+                        ชื่อผลงาน / กิจกรรม
+                    </h2>
+
+                    <div class="date">
+                        ปีการศึกษา 2569
+                    </div>
+
+                    <p>
+                        มีส่วนร่วมในกิจกรรมและได้ฝึกทักษะ
+                        ด้านการสื่อสาร ความคิดสร้างสรรค์
+                        และการทำงานร่วมกับผู้อื่น
+                    </p>
+
+                </div>
 
             </div>
+
 
         </div>
 
@@ -191,9 +781,92 @@
 </main>
 
 
+
+<!-- =========================
+     IMAGE MODAL
+========================= -->
+
+<div class="image-modal"
+     id="imageModal"
+     onclick="closeImage()">
+
+    <span class="close-modal">
+        &times;
+    </span>
+
+    <img id="modalImage"
+         src=""
+         alt="ดูเกียรติบัตร">
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
     © 2026 Panida Pusingtong
+
 </footer>
 
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    function openImage(element) {
+
+        const image =
+            element.querySelector("img");
+
+        const modal =
+            document.getElementById("imageModal");
+
+        const modalImage =
+            document.getElementById("modalImage");
+
+        modalImage.src =
+            image.src;
+
+        modal.classList.add("show");
+
+    }
+
+
+    function closeImage() {
+
+        const modal =
+            document.getElementById("imageModal");
+
+        modal.classList.remove("show");
+
+    }
+
+
+    /* กด ESC เพื่อปิดรูป */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                closeImage();
+
+            }
+
+        }
+    );
+
+</script>
+
+
 </body>
+
 </html>
