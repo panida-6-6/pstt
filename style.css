@@ -736,22 +736,28 @@ footer {
     .page-header h1 {
         font-size: 36px;
     }
+</style>
+   /* FIX CERTIFICATE TEXT */
 
-/* =========================
-   CERTIFICATE TEXT COLOR
-========================= */
+.certificate-card .certificate-info {
+    background: #ffffff !important;
+}
 
-.certificate-info h2 {
+.certificate-card .certificate-info h2 {
     color: #222222 !important;
     opacity: 1 !important;
+    -webkit-text-fill-color: #222222 !important;
+    font-weight: 700 !important;
 }
 
-.certificate-info .date {
+.certificate-card .certificate-info .date {
     color: #777777 !important;
     opacity: 1 !important;
+    -webkit-text-fill-color: #777777 !important;
 }
 
-.certificate-info p {
+.certificate-card .certificate-info p {
     color: #555555 !important;
     opacity: 1 !important;
+    -webkit-text-fill-color: #555555 !important;
 }
